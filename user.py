@@ -30,6 +30,8 @@ class User:
         """ Connect to the SQLite database with an absolute path. """
         parent_path = Path().resolve()
         db_path = f'{parent_path}/users.db'  # Ensure this path exists
+        if Path(db_path).exists():
+            return "Database already exists."
         return sqlite3.connect(db_path)
 
     @staticmethod
