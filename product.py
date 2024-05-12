@@ -14,6 +14,7 @@ class Product:
                  ) -> None:
         
         self.name = product_name
+        
         self.price = quantity
         self.quantity = quantity
         self.description = description
