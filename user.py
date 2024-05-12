@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy.stats import linregress
 import sqlite3
+from pathlib import Path
 
 class User:
     """
@@ -27,7 +28,8 @@ class User:
     @staticmethod
     def connect():
         """ Connect to the SQLite database with an absolute path. """
-        db_path = 'C:/Users/sotir/Desktop/solidarity/users.db'  # Ensure this path exists
+        parent_path = Path().resolve()
+        db_path = f'{parent_path}/users.db'  # Ensure this path exists
         return sqlite3.connect(db_path)
 
     @staticmethod
